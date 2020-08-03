@@ -1,6 +1,6 @@
 Todo:
 
-- git test push to staging 
+- git test push to staging from linux
 
 - Lägg in funktion för att manuellt lägga in tid i projekt
 
