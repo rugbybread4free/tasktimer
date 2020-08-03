@@ -1,6 +1,6 @@
 Todo:
 
-- git test note 
+- git test push to staging 
 
 - Lägg in funktion för att manuellt lägga in tid i projekt
 
