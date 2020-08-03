@@ -1,6 +1,6 @@
 Todo:
 
-
+- git test note 
 
 - Lägg in funktion för att manuellt lägga in tid i projekt
 
