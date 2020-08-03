@@ -1,0 +1,42 @@
+Todo:
+
+
+
+- Lägg in funktion för att manuellt lägga in tid i projekt
+
+- konvertera elapsed sekunder till timmar, minuter, sekunder
+
+- lägga in funktion som skapar sub-tasks
+
+
+
+- Skapa/skriv om funktion för att lista och välja projekt, nuvarande kod:
+
+        with open('save.json', 'r+') as savefile:
+            save_data = json.load(savefile)
+
+            n = 0
+            list_of_projects = []
+            for k in save_data['projects'].keys():
+                n += 1
+                print(str(n) + '. ' + k)
+                list_of_projects.append(k)
+
+
+
+                import datetime
+
+print(str(datetime.timedelta(seconds=time_var_in_seconds)))
+
+
+Removed code:
+
+# def save_func(projectname, data):
+#
+#     with open('save.json', 'r+') as savefile:
+#         save_data = json.load(savefile)
+#         temp_data = save_data['projects'][projectname]['total_elapsed_time']
+#         temp_data += data
+#         save_data['projects'][projectname]['total_elapsed_time'] = temp_data
+#         savefile.seek(0)
+#         json.dump(save_data, savefile, indent=4)
