@@ -8,6 +8,8 @@ Todo:
 
 - lägga in funktion som skapar sub-tasks
 
+- funktion för att exportera sparade filer 
+
 
 
 - Skapa/skriv om funktion för att lista och välja projekt, nuvarande kod:
