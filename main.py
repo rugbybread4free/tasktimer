@@ -44,12 +44,12 @@ def create_json():
 
 
 
-
-
+#Beginning of program
+print(term.home + term.on_black + term.clear)
 while True:
-    term.clear()
 
-    print(term.darkorange2("1. (N)ew project \n2. (L)oad existing project \n3. (P)roject options"))
+
+    console_print("1. (N)ew project \n2. (L)oad existing project \n3. (P)roject options \n4. (Q)uit")
     choice = input()
     if choice in ['1', 'n', 'N', 'New', 'new']:
         new_project()
@@ -60,3 +60,5 @@ while True:
     elif choice in ['3', 'p', 'P', 'options', 'Options']:
         edit_projects()
         pass
+    elif choice in ['q', 'Q', 'quit', 'Quit', '4']:
+        exit()

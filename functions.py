@@ -7,7 +7,7 @@ import sys
 term = Terminal()
 
 def console_print(arg_string):
-    print(term.darkorange2(arg_string))
+    print(term.orange_on_black(arg_string))
 
 
 def new_project():
@@ -22,18 +22,20 @@ def new_project():
     return
 
 def load_animation():
-    animation = ['| ', '/ ', '- ', '\\ ']
+    animation = ['|  | ', '/  / ', '-  - ', '\\  \\ ']
     anicount = 0
     for i in range(0, 4):
         time.sleep(1)
-        sys.stdout.write("\r" + animation[anicount])
+        #sys.stdout.write("\r" + animation[anicount])
+        print(term.orange_on_black + animation[anicount], end="\r")
         sys.stdout.flush()
         anicount = (anicount + 1)
 
 
 
 def timer(projectname):
-    if input("Start timer? y/n") in ['y', 'Y']:
+    console_print("Start timer? y/n\n")
+    if input() in ['y', 'Y']:
         start = time.time()
         data = 0
         console_print("Press any key to stop timer: ")
@@ -41,11 +43,11 @@ def timer(projectname):
         with term.cbreak():
             val = ""
             while val.lower() == "":
-                val = term.inkey(timeout=1)
+                val = term.inkey(timeout=0)
                 if not val:
                     load_animation()
                 elif val:
-                    print("Stopped timer!")
+                    print(term.red_on_black + "Stopped timer!")
 
             end = time.time()
             returnvalue = datetime.timedelta(seconds=end-start)
@@ -62,7 +64,9 @@ def timer(projectname):
             savefile.truncate()
 
         try:
-            print(term.darkorange2("You spent {} seconds on {}".format(data, projectname)))
+            console_print("You spent {} seconds on {}".format(data, projectname))
+            print(term.on_black)
+
         except NameError:
             print('NameError!')
     else:
@@ -78,11 +82,10 @@ def load_project():
 
     try:
         if chosen_project:
-            console_print(term.darkorange2('You selected ' + chosen_project +'\nDescription: ' +save_data['projects'][chosen_project]['description']))
+            console_print('You selected ' + chosen_project +'\nDescription: ' +save_data['projects'][chosen_project]['description'])
             total_elapsed_time = save_data['projects'][chosen_project]['total_elapsed_time']
-            console_print(term.darkorange2('Total time: '+str(datetime.timedelta(seconds=total_elapsed_time))))
+            console_print('Total time: '+str(datetime.timedelta(seconds=total_elapsed_time)))
     except IndexError:
-        #print(term.darkorange2('Your choice was not in the list'))
         console_print("Your choice was not in the list")
 
     print('\n')
@@ -98,9 +101,10 @@ def list_projects():
 
         n = 0
         list_of_projects = []
+        print("\n", end="")
         for k in save_data['projects'].keys():
             n += 1
-            print(str(n) + '. ' + k)
+            console_print(str(n) + '. ' + k)
             list_of_projects.append(k)
         while True:#Looping giving the user choice of project to load, until valid input is given
             console_print('Select project by number: ')
@@ -135,7 +139,7 @@ def edit_projects():
 def reset_project(projectname):
     with open('save.json', 'r+') as savefile:
         save_data = json.load(savefile)
-        print(term.darkred(('Reseting elapsed time in ' + str(projectname) +'...')))
+        print(term.white_on_black(('Reseting elapsed time in ' + str(projectname) +'...')))
         save_data['projects'][projectname]['total_elapsed_time'] = 0
         savefile.seek(0)
         json.dump(save_data, savefile, indent=4)
@@ -147,7 +151,8 @@ def reset_project(projectname):
 def delete_project(projectname):
     with open('save.json', 'r+') as savefile:
         save_data = json.load(savefile)
-        print(term.darkred(('Deleting ' + str(projectname) + '...')))
+        print(term.white_on_black(('Deleting ' + str(projectname) + '...')))
+        print(term.clear_eol)
         del save_data['projects'][projectname]
         savefile.seek(0)
         json.dump(save_data, savefile, indent=4)
@@ -168,3 +173,4 @@ def edit_time(projectname):
         savefile.seek(0)
         json.dump(save_data, savefile, indent=4)
         savefile.truncate()
+        #print(term.clear_eol)

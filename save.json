@@ -1,7 +1,7 @@
 {
     "projects": {
         "project_name": {
-            "total_elapsed_time": 1,
+            "total_elapsed_time": 5,
             "description": "something desc",
             "session": [
                 {
@@ -11,8 +11,28 @@
             ]
         },
         "Katt": {
-            "total_elapsed_time": 8437,
+            "total_elapsed_time": 16,
             "description": "hundhund",
+            "session": [
+                {
+                    "start_time": 0,
+                    "session_length": 0
+                }
+            ]
+        },
+        "Test": {
+            "total_elapsed_time": 16,
+            "description": "fets",
+            "session": [
+                {
+                    "start_time": 0,
+                    "session_length": 0
+                }
+            ]
+        },
+        "Test2": {
+            "total_elapsed_time": 12,
+            "description": "Testiestt",
             "session": [
                 {
                     "start_time": 0,
