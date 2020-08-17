@@ -11,18 +11,8 @@
             ]
         },
         "Katt": {
-            "total_elapsed_time": 8102,
+            "total_elapsed_time": 8437,
             "description": "hundhund",
-            "session": [
-                {
-                    "start_time": 0,
-                    "session_length": 0
-                }
-            ]
-        },
-        "Test": {
-            "total_elapsed_time": 0,
-            "description": "Det h\u00e4r \u00e4r ett test",
             "session": [
                 {
                     "start_time": 0,

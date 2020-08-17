@@ -4,6 +4,9 @@ from blessed import Terminal
 import json
 from functions import *
 
+term = Terminal()
+
+
 
 
 
@@ -44,8 +47,9 @@ def create_json():
 
 
 while True:
-    print("""
-1. (N)ew project \n2. (L)oad existing project \n3. (P)roject options""")
+    term.clear()
+
+    print(term.darkorange2("1. (N)ew project \n2. (L)oad existing project \n3. (P)roject options"))
     choice = input()
     if choice in ['1', 'n', 'N', 'New', 'new']:
         new_project()
