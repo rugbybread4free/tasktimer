@@ -1,12 +1,12 @@
 Todo:
 
-- git test push to staging from linux
-
 - Lägg in funktion för att manuellt lägga in tid i projekt
 
 - konvertera elapsed sekunder till timmar, minuter, sekunder
 
 - lägga in funktion som skapar sub-tasks
+
+- funktion för att exportera sparade filer 
 
 
 
